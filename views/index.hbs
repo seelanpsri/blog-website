@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Blog</title>
+</head>
+<body>
+    <section class="section1">
+         <header class="main-header">
+            <nav class="header-nav1">
+                <ul class="header-nav1-item-list">
+                    <li class="header-nav1-item"><a href="https://www.linkedin.com/in/seelan-a-778393248/"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                    <li class="header-nav1-item"><a href="https://github.com/seelanpsri"><ion-icon name="logo-github"></ion-icon></a></li>
+                    <li class="header-nav1-item"><a href="https://www.instagram.com/a.seelan8/?next=%2F"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                </ul>
+                <h2 class="main-header-nav-heading">Blogify</h2>
+                <form action="/title-search" method="post" class="form">
+                    <input type="text" name="title_search" placeholder="Search title">
+                    <button type="submit"><ion-icon name="search"></ion-icon></button>
+                </form>
+            </nav>
+            <nav class="header-nav2">
+                <ul class="header-nav2-item-list">
+                    <li class="header-nav2-item"><a href="/blog" active>Home</a></li>
+                    <li class="header-nav2-item drop-down">
+                        <p class="header-nav2-item-inner-content">Category<span><ion-icon name="arrow-dropdown"></ion-icon></span></p>
+                        <ul class="header-nav2-item-inner-item-list">
+                            <li class="header-nav2-item-inner-item"><a href="/blog?category=Lifestyle">Lifestyle</a></li>
+                            <li class="header-nav2-item-inner-item"><a href="/blog?category=Health">Health</a></li>
+                            <li class="header-nav2-item-inner-item"><a href="/blog?category=Family">Family</a></li>
+                            <li class="header-nav2-item-inner-item"><a href="/blog?category=Management">Management</a></li>
+                            <li class="header-nav2-item-inner-item"><a href="/blog?category=Travel">Travel</a></li>
+                        </ul>
+                    </li>
+                    <li class="header-nav2-item drop-down">
+                        <p class="header-nav2-item-inner-content">Blog<span><ion-icon name="arrow-dropdown"></ion-icon></span></p>
+                        <ul class="header-nav2-item-inner-item-list">
+                            <li class="header-nav2-item-inner-item"><a href="/blog?blog=video post">video post</a></li>
+                            <li class="header-nav2-item-inner-item"><a href="/blog?blog=Audio post">Audio post</a></li>
+                            <li class="header-nav2-item-inner-item"><a href="/blog?blog=Galary post">Galary post</a></li>
+                            <li class="header-nav2-item-inner-item"><a href="/blog?blog=Standard post">Standard post</a></li>
+                        </ul>
+                       
+                    </li>
+                    <li class="header-nav2-item"><a href="#section3">About</a></li>
+                    <li class="header-nav2-item"><a href="#section3">Contact</a></li>
+                </ul>
+            </nav>
+         </header>
+         <main>
+            <div class="first-preference">
+                <img src={{first_three.[0].file_name}} alt="">
+                <div class="content-div">
+                    <p class="content-type">{{first_three.[0].category}}</p>
+                    <h2 class="title">{{first_three.[0].blog_title}}</h2>
+                    <div class="details-div">
+                        <p class="name">{{first_three.[0].author_name}}</p>
+                        <p class="date">{{first_three.[0].blog_date}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="sec-preference">
+                <img src={{first_three.[1].file_name}} alt="">
+                <div class="content-div">
+                    <p class="content-type">{{first_three.[1].category}}</p>
+                    <h2 class="title">{{first_three.[1].blog_title}}</h2>
+                    <div class="details-div">
+                        <p class="name">{{first_three.[1].author_name}}</p>
+                        <p class="date">{{first_three.[1].blog_date}}</p>
+                    </div>
+                </div>
+                </div>
+                <div class="sec-preference">
+                              <img src={{first_three.[2].file_name}} alt="">
+                <div class="content-div">
+                    <p class="content-type">{{first_three.[2].category}}</p>
+                    <h2 class="title">{{first_three.[2].blog_title}}</h2>
+                    <div class="details-div">
+                        <p class="name">{{first_three.[2].author_name}}</p>
+                        <p class="date">{{first_three.[2].blog_date}}</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+         </main>
+    </section>
+    <section class="section2">
+        <header class="section2-header">
+            <a href="/newblog"><span>+</span>NewBlog</a>
+        </header>
+        <div class="main">
+           <div class="cards-all" id="card-all">
+        {{#each all}}
+            <div class="card">
+                <div class="card-top">
+                    <a href="/show?show_id={{this._id}}">
+                       <img src={{this.file_name}} alt="">
+                    </a>
+                </div>
+                <div class="card-bottom">
+                    <p class="date">{{this.blog_date}}</p>
+                    <h2 class="blog-title">
+                        {{this.blog_title}}
+                    </h2>
+                    <p class="blog-inner-content">
+                        {{this.blog_content.[0]}}
+                    </p>
+                    <p class="category">{{this.category}}</p>
+                </div>
+            </div>
+         {{/each}}   
+        </div>
+        </div>
+        
+        <div class="centering">
+            <div class="pagination-container">
+                <button class="previous" onclick="minus(event)"><ion-icon name="arrow-round-back" onclick="minus(event)"></ion-icon>prev</button>
+                <ul id="ul">
+                    {{#each array}}
+                        
+                      <li class="link " value={{this}} onclick="link_activation(event)">{{this}}</li>
+
+                    {{/each}}
+                </ul>
+                <button class="next" onclick="plus(event)">Next<ion-icon name="arrow-round-forward"></ion-icon></button>
+            </div>
+        </div>    
+    </section>
+    <section class="section3" id="section3">
+        <div class="upper-section3">
+             <div class="popular-post">
+                <h2 class="popular-post-title">Popular Posts</h2>
+                {{#each popular}}
+                   <div class="card-small-about">
+                     <div class="card-small-about-left">
+                         <a href="/show?show_id={{this._id}}">
+                            <img src={{this.file_name}} alt="">
+                         </a>
+                     </div>
+                     <div class="card-small-about-right">
+                        <h2 class="card-small-about-right-title">
+                            {{this.blog_title}}
+                        </h2>
+                        <p class="card-small-about-author">
+                            By {{this.author_name}} <span>on {{this.blog_date}}</span>
+                        </p>
+                     </div>
+                   </div>
+                {{/each}}   
+             </div>
+             <div class="about-page-div">
+                <h2 class="about-page-title">
+                    About Developer
+                </h2>
+                <p class="about-page-content">
+               Myself I am Seelan and I am a Mechatronics student but I had more intrested in computer science field expecialy webdevelopment field,So I started learning webdevelopement with my own effort and I had collected resources  from online,now i have a strong foundation of HTML,CSS,Javascript,Nodejs,ExpressJs and Mongodb Now I am a entry level fullstack Webdeveloper.
+                   
+                </p>
+                <ul class="social-media">
+                    <li><a href="https://www.linkedin.com/in/seelan-a-778393248/"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                    <li><a href="https://github.com/seelanpsri"><ion-icon name="logo-github"></ion-icon></a></li>
+                    <li><a href="https://www.instagram.com/a.seelan8/?next=%2F"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                </ul>
+             </div>
+        </div>
+        <div class="lower-section-3">
+            <h2 class="tags">Tags</h2>
+            <ul>
+                <li><a href="/blog?category=Lifestyle">Lifestyle</a></li>
+                <li><a href="/blog?category=Health">Health</a></li>
+                <li><a href="/blog?category=Family">Family</a></li>
+                <li><a href="/blog?category=Management">Management</a></li>
+                <li><a href="/blog?category=Travel">Travel</a></li>
+                <li><a href="/blog?blog=video post">video post</a></li>
+                <li><a href="/blog?blog=Audio post">Audio Post</a></li>
+                <li><a href="/blog?blog=Galary post">Galary Post</a></li>
+                <li><a href="/blog?blog=Standard post">Standard Post</a></li>
+            </ul>
+        </div>
+    </section>
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</body>
+</html>

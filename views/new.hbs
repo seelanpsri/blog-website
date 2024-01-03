@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="new blog.css">
+</head>
+<body>
+    <form action="/store-data" enctype="multipart/form-data" method="POST">
+        <h2 class="form-title">New Blog</h2>
+        <label for="file">upload a profile of your blog</label>
+        <input type="file" name="mypic">
+        <label for="blog_name">Blog name</label>
+        <input type="text" name="blog_name">
+        <label for="blog_title">Page title</label>
+        <input type="text" name="blog_title">
+        <label for="blog_content">Blog content</label>
+        <textarea placeholder="Enter # to New para.." name="blog_content" id="" cols="30" rows="10"></textarea>
+        <label for="category">Category</label>
+        <select name="category" id="">
+            <option value="Lifestyle">Lifestyle</option>
+            <option value="Health">Health</option>
+            <option value="Family">Family</option>
+            <option value="Management">Management</option>
+            <option value="Travel">Travel</option>
+        </select>
+        <label for="blog_type">Blog type</label>
+        <select name="blog_type" id="">
+            <option value="video post">video post</option>
+            <option value="Audio post">Audio post</option>
+            <option value="Galary post">Galary post</option>
+            <option value="Standard post">Standard post</option>
+        </select>
+        <label for="author">Author</label>
+        <input type="text" name="author">
+        <label for="tags">Tags</label>
+        <textarea name="tags" placeholder="Enter # to create tag.." id="" cols="30" rows="1"></textarea>
+        <button type="submit">Post</button>
+    </form>
+</body>
+</html>

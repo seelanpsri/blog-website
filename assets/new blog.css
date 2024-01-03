@@ -1,0 +1,132 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+}
+body{
+    background-image: url(hero-bg.jpg.webp);
+    color:white;
+    height: auto;
+    width: 100%;
+    height: 160vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    position: relative;
+}
+body::before{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0;
+    left:0;
+    z-index: 2;
+    background-color: rgb(63, 62, 60,0.6);
+
+}
+form{
+    height:auto;
+    width:70%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(150, 150, 150,0.7);
+    padding: 20px;
+    border-radius: 5px;
+    z-index:3;
+    animation: identifier 0.75s ease;
+}
+form input[type="text"]{
+   height: 30px;
+   border: none;
+   outline: none;
+}
+form input[type="text"]:focus{
+    border: none;
+    outline: none;
+}
+textarea[name="tags"]{
+    height:30px;
+    border: none;
+}
+select{
+    width:fit-content;
+    height: 30px;
+    border-radius: 3px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 700;
+}
+select:focus{
+    border: none;
+    box-shadow:none ;
+}
+label{
+    margin-top: 20px;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    color: black;
+}
+input[type='file']{
+    height: 30px;
+    border: none;
+
+    width:fit-content;
+}
+input[type='file']:active{
+    border:none;
+    outline:none;
+}
+textarea:focus{
+    border: none;
+    outline: none;
+}
+textarea{
+    border-radius: 10px;
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.form-title{
+    text-align: center;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 1px;
+    color: rgb(39, 39, 54);
+    font-weight: 500;
+    font-size: 30px;
+}
+input{
+    border-radius:5px ;
+    padding: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+}
+button{
+    margin-top: 30px;
+    background-color: rgb(39, 97, 6);
+    border: none;
+    outline: none;
+    width: 70px;
+    height:30px;
+    border-radius:5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    color: white;
+    justify-self: right;
+}
+option{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 700;
+}
+option:hover{
+    background-color: rgb(61, 69, 71);
+}
+@keyframes identifier {
+    0%{
+        transform: translateY(50px);
+    }
+    100%{
+        transform: translate(0px);
+    }
+}
